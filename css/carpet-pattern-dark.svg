@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" fill="none" stroke="#4B6282" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Subtle Weave / Carpet Texture Lattice -->
+  <path d="M0 80h160M80 0v160" stroke-width="0.35" stroke-dasharray="1 3" stroke-opacity="0.35"/>
+  <polygon points="80,10 150,80 80,150 10,80" stroke-width="0.4" stroke-dasharray="2 3" stroke-opacity="0.4"/>
+
+  <!-- Four Corners: Persian Carpet Lachak (Corner Medallions) -->
+  <!-- Top-Left -->
+  <path d="M0,44 C20,44 44,20 44,0 M0,32 C16,32 32,16 32,0 M0,20 C10,20 20,10 20,0" stroke-width="0.75" stroke-opacity="0.55"/>
+  <circle cx="0" cy="0" r="8" stroke-width="0.6" stroke-opacity="0.45"/>
+  <circle cx="0" cy="0" r="4" stroke-width="0.5" stroke-opacity="0.4"/>
+  <path d="M0,52 C26,52 52,26 52,0" stroke-width="0.4" stroke-dasharray="2 2" stroke-opacity="0.4"/>
+  <path d="M22,22 L14,30 M22,22 L30,14" stroke-width="0.6" stroke-opacity="0.5"/>
+  <circle cx="22" cy="22" r="2.5" stroke-width="0.5" stroke-opacity="0.5"/>
+
+  <!-- Top-Right -->
+  <path d="M160,44 C140,44 116,20 116,0 M160,32 C144,32 128,16 128,0 M160,20 C150,20 140,10 140,0" stroke-width="0.75" stroke-opacity="0.55"/>
+  <circle cx="160" cy="0" r="8" stroke-width="0.6" stroke-opacity="0.45"/>
+  <circle cx="160" cy="0" r="4" stroke-width="0.5" stroke-opacity="0.4"/>
+  <path d="M160,52 C134,52 108,26 108,0" stroke-width="0.4" stroke-dasharray="2 2" stroke-opacity="0.4"/>
+  <path d="M138,22 L146,30 M138,22 L130,14" stroke-width="0.6" stroke-opacity="0.5"/>
+  <circle cx="138" cy="22" r="2.5" stroke-width="0.5" stroke-opacity="0.5"/>
+
+  <!-- Bottom-Left -->
+  <path d="M0,116 C20,116 44,140 44,160 M0,128 C16,128 32,144 32,160 M0,140 C10,140 20,150 20,160" stroke-width="0.75" stroke-opacity="0.55"/>
+  <circle cx="0" cy="160" r="8" stroke-width="0.6" stroke-opacity="0.45"/>
+  <circle cx="0" cy="160" r="4" stroke-width="0.5" stroke-opacity="0.4"/>
+  <path d="M0,108 C26,108 52,134 52,160" stroke-width="0.4" stroke-dasharray="2 2" stroke-opacity="0.4"/>
+  <path d="M22,138 L14,130 M22,138 L30,146" stroke-width="0.6" stroke-opacity="0.5"/>
+  <circle cx="22" cy="138" r="2.5" stroke-width="0.5" stroke-opacity="0.5"/>
+
+  <!-- Bottom-Right -->
+  <path d="M160,116 C140,116 116,140 116,160 M160,128 C144,128 128,144 128,160 M160,140 C150,140 140,150 140,160" stroke-width="0.75" stroke-opacity="0.55"/>
+  <circle cx="160" cy="160" r="8" stroke-width="0.6" stroke-opacity="0.45"/>
+  <circle cx="160" cy="160" r="4" stroke-width="0.5" stroke-opacity="0.4"/>
+  <path d="M160,108 C134,108 108,134 108,160" stroke-width="0.4" stroke-dasharray="2 2" stroke-opacity="0.4"/>
+  <path d="M138,138 L146,130 M138,138 L130,146" stroke-width="0.6" stroke-opacity="0.5"/>
+  <circle cx="138" cy="138" r="2.5" stroke-width="0.5" stroke-opacity="0.5"/>
+
+  <!-- Central Toranj (Persian Medallion) -->
+  <!-- 16-point Geometrical Shamseh Star -->
+  <polygon points="80,48 87,58 99,53 98,66 110,70 102,80 110,90 98,94 99,107 87,102 80,112 73,102 61,107 62,94 50,90 58,80 50,70 62,66 61,53 73,58" stroke-width="0.8" stroke-opacity="0.65"/>
+  <polygon points="80,55 85,63 94,59 93,69 103,73 97,80 103,87 93,91 94,101 85,97 80,105 75,97 66,101 67,91 57,87 63,80 57,73 67,69 66,59 75,63" stroke-width="0.5" stroke-opacity="0.5"/>
+
+  <!-- Central Rosette (Gol-e Shah-Abbasi Core) -->
+  <circle cx="80" cy="80" r="14" stroke-width="0.7" stroke-opacity="0.6"/>
+  <circle cx="80" cy="80" r="7" stroke-width="0.5" stroke-opacity="0.5"/>
+  <circle cx="80" cy="80" r="2.5" fill="#4B6282" fill-opacity="0.6"/>
+
+  <!-- Shamseh Pendants (Sartoranj - north, south, east, west) -->
+  <path d="M80,48 C76,40 84,34 80,26 C76,34 84,40 80,48 Z" stroke-width="0.6" stroke-opacity="0.6"/>
+  <circle cx="80" cy="24" r="2" stroke-width="0.5" stroke-opacity="0.5"/>
+  <path d="M80,112 C76,120 84,126 80,134 C76,126 84,120 80,112 Z" stroke-width="0.6" stroke-opacity="0.6"/>
+  <circle cx="80" cy="136" r="2" stroke-width="0.5" stroke-opacity="0.5"/>
+  <path d="M50,80 C42,76 36,84 28,80 C36,76 42,84 50,80 Z" stroke-width="0.6" stroke-opacity="0.6"/>
+  <circle cx="26" cy="80" r="2" stroke-width="0.5" stroke-opacity="0.5"/>
+  <path d="M110,80 C118,76 124,84 132,80 C124,76 118,84 110,80 Z" stroke-width="0.6" stroke-opacity="0.6"/>
+  <circle cx="134" cy="80" r="2" stroke-width="0.5" stroke-opacity="0.5"/>
+
+  <!-- Eslimi (Arabesque) Tendril Curves in 4 Quadrants -->
+  <path d="M42,42 C54,48 58,60 62,66 M36,46 C46,52 50,62 54,68" stroke-width="0.5" stroke-opacity="0.5"/>
+  <circle cx="48" cy="48" r="1.8" stroke-width="0.4" stroke-opacity="0.4"/>
+  <path d="M118,42 C106,48 102,60 98,66 M124,46 C114,52 110,62 106,68" stroke-width="0.5" stroke-opacity="0.5"/>
+  <circle cx="112" cy="48" r="1.8" stroke-width="0.4" stroke-opacity="0.4"/>
+  <path d="M42,118 C54,112 58,100 62,94 M36,114 C46,108 50,98 54,92" stroke-width="0.5" stroke-opacity="0.5"/>
+  <circle cx="48" cy="112" r="1.8" stroke-width="0.4" stroke-opacity="0.4"/>
+  <path d="M118,118 C106,112 102,100 98,94 M124,114 C114,108 110,98 106,92" stroke-width="0.5" stroke-opacity="0.5"/>
+  <circle cx="112" cy="112" r="1.8" stroke-width="0.4" stroke-opacity="0.4"/>
+</svg>

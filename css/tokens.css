@@ -1,0 +1,122 @@
+/* Tarāz design tokens: "Persian Parchment" (light) / "Night Ink" (dark) themes. */
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#F5EFE6, #0C1017);
+  --bg-pattern: light-dark(url("carpet-pattern.svg"), url("carpet-pattern-dark.svg"));
+  --surface: light-dark(#FCFAF6, #141B26);
+  --surface-card: light-dark(linear-gradient(180deg, #FDFCF9 0%, #F9F5EC 100%), linear-gradient(180deg, #161E2B 0%, #121822 100%));
+  --surface-2: light-dark(#EFE8D8, #1B2433);
+  --raised: light-dark(#FFFFFF, #202B3D);
+  --ink: light-dark(#1A2330, #ECE7DC);
+  --ink-2: light-dark(#334155, #CBD5E1);
+  --muted: light-dark(#687282, #94A3B8);
+  --hairline: light-dark(rgba(205, 192, 170, 0.75), rgba(50, 68, 95, 0.65));
+  --hairline-subtle: light-dark(rgba(215, 203, 183, 0.45), rgba(45, 60, 85, 0.4));
+  --brass: light-dark(#B6882E, #E5A83B);
+  --turquoise: light-dark(#0D7D7D, #2DD4BF);
+  --turquoise-glow: light-dark(rgba(13, 125, 125, 0.16), rgba(45, 212, 191, 0.2));
+  --cinnabar: light-dark(#C8442F, #FF7A5C);
+  --indigo: light-dark(#22304A, #4B6584);
+  --on-accent: light-dark(#FFFFFF, #0C1017);
+  --shadow-c: light-dark(rgba(35, 25, 15, 0.08), rgba(0, 0, 0, 0.55));
+  --accent: var(--turquoise);
+  --ok: var(--turquoise);
+  --warn: var(--brass);
+  --danger: var(--cinnabar);
+  --bw: 1px;
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+  --r-s: 6px;
+  --r-m: 10px;
+  --r-l: 16px;
+  --r-xl: 20px;
+  --r-pill: 999px;
+  --shadow-1: light-dark(0 2px 6px -1px rgba(35, 25, 15, 0.06), 0 1px 3px rgba(35, 25, 15, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3));
+  --shadow-2: light-dark(0 10px 25px -4px rgba(35, 25, 15, 0.08), 0 4px 10px -2px rgba(35, 25, 15, 0.04), 0 12px 28px -4px rgba(0, 0, 0, 0.65), 0 4px 12px -2px rgba(0, 0, 0, 0.4));
+  --shadow-3: light-dark(0 24px 50px -10px rgba(35, 25, 15, 0.12), 0 8px 20px -4px rgba(35, 25, 15, 0.06), 0 28px 60px -10px rgba(0, 0, 0, 0.8), 0 10px 24px -4px rgba(0, 0, 0, 0.5));
+  --shadow-card: light-dark(0 14px 34px -8px rgba(45, 30, 15, 0.09), 0 2px 8px -2px rgba(45, 30, 15, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 16px 40px -8px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05));
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-md: 15px;
+  --fs-lg: 18px;
+  --fs-xl: 24px;
+  --fs-2xl: 34px;
+  --font-ui: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
+  --font-display: 'Noto Nastaliq Urdu', 'Amiri', Georgia, serif;
+  --font-calligraphy: 'Noto Nastaliq Urdu', 'Amiri', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  --font-latin: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --dur-fast: 140ms;
+  --dur: 220ms;
+  --dur-slow: 380ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --w-max: 1240px;
+}
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-pattern: url("carpet-pattern.svg");
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-pattern: url("carpet-pattern-dark.svg");
+}
+@supports not (color: light-dark(#000, #000)) {
+  :root {
+    --bg: #F5EFE6;
+    --bg-pattern: url("carpet-pattern.svg");
+    --surface: #FCFAF6;
+    --surface-card: linear-gradient(180deg, #FDFCF9 0%, #F9F5EC 100%);
+    --surface-2: #EFE8D8;
+    --raised: #FFFFFF;
+    --ink: #1A2330;
+    --ink-2: #334155;
+    --muted: #687282;
+    --hairline: rgba(205, 192, 170, 0.75);
+    --hairline-subtle: rgba(215, 203, 183, 0.45);
+    --brass: #B6882E;
+    --turquoise: #0D7D7D;
+    --turquoise-glow: rgba(13, 125, 125, 0.16);
+    --cinnabar: #C8442F;
+    --indigo: #22304A;
+    --on-accent: #FFFFFF;
+    --shadow-c: rgba(35, 25, 15, 0.08);
+    --shadow-1: 0 2px 6px -1px rgba(35, 25, 15, 0.06), 0 1px 3px rgba(35, 25, 15, 0.03);
+    --shadow-2: 0 10px 25px -4px rgba(35, 25, 15, 0.08), 0 4px 10px -2px rgba(35, 25, 15, 0.04);
+    --shadow-3: 0 24px 50px -10px rgba(35, 25, 15, 0.12), 0 8px 20px -4px rgba(35, 25, 15, 0.06);
+    --shadow-card: 0 14px 34px -8px rgba(45, 30, 15, 0.09), 0 2px 8px -2px rgba(45, 30, 15, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  }
+  [data-theme="dark"] {
+    --bg: #0C1017;
+    --bg-pattern: url("carpet-pattern-dark.svg");
+    --surface: #141B26;
+    --surface-card: linear-gradient(180deg, #161E2B 0%, #121822 100%);
+    --surface-2: #1B2433;
+    --raised: #202B3D;
+    --ink: #ECE7DC;
+    --ink-2: #CBD5E1;
+    --muted: #94A3B8;
+    --hairline: rgba(50, 68, 95, 0.65);
+    --hairline-subtle: rgba(45, 60, 85, 0.4);
+    --brass: #E5A83B;
+    --turquoise: #2DD4BF;
+    --turquoise-glow: rgba(45, 212, 191, 0.2);
+    --cinnabar: #FF7A5C;
+    --indigo: #4B6584;
+    --on-accent: #0C1017;
+    --shadow-c: rgba(0, 0, 0, 0.55);
+    --shadow-1: 0 2px 6px -1px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-2: 0 12px 28px -4px rgba(0, 0, 0, 0.65), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+    --shadow-3: 0 28px 60px -10px rgba(0, 0, 0, 0.8), 0 10px 24px -4px rgba(0, 0, 0, 0.5);
+    --shadow-card: 0 16px 40px -8px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+}
+@media (forced-colors: active) {
+  :root { forced-color-adjust: auto; }
+}

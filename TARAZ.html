@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F4EFE4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F141C" media="(prefers-color-scheme: dark)">
+  <meta name="author" content="Gholamreza Nejati Jahromi">
+  <title>تراز · ویرایش و آماده‌سازی متن برای آفیس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&family=Amiri:wght@400;700&family=Inter:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Vazirmatn:wght@300..800&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/views.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="css/settings.css">
+  <link rel="stylesheet" href="css/polish.css">
+  <link rel="stylesheet" href="css/popover.css">
+  <link rel="stylesheet" href="css/help.css">
+  <script>
+    window.__tzMiss = function (s) { (window.__tzMissing = window.__tzMissing || []).push(s.getAttribute('src')); };
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem('taraz.settings.v1') || '{}'), e = document.documentElement;
+        if (s.theme === 'light' || s.theme === 'dark') e.setAttribute('data-theme', s.theme);
+        else if (matchMedia('(prefers-color-scheme: dark)').matches) e.setAttribute('data-theme', 'dark');
+      } catch (x) { }
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="tz-invocation" role="presentation" lang="fa" dir="rtl">
+    <span class="tz-invocation-line" aria-hidden="true"></span>
+    <p class="tz-invocation-text">به نام خدا</p>
+    <span class="tz-invocation-line" aria-hidden="true"></span>
+  </div>
+  <header class="tz-head" id="tz-head"></header>
+  <main class="tz-main" id="app"></main>
+  <noscript>
+    <p style="padding:16px;font-family:sans-serif">برای اجرای این برنامه فعال بودن جاوااسکریپت الزامی است.</p>
+  </noscript>
+  <footer class="tz-foot" lang="en" dir="ltr">Built by Gholamreza Nejati Jahromi</footer>
+
+  <!-- Core -->
+  <script defer src="js/core/namespace.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/core/constants.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/core/i18n.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/core/i18n.ui.fa.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/core/i18n.settings.fa.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/core/i18n.views.fa.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/core/i18n.polish.fa.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/core/tabs.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/core/settings.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/core/presets.js" onerror="__tzMiss(this)"></script>
+
+  <!-- Engine -->
+  <script defer src="js/engine/parse.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/engine/inline.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/engine/direction.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/engine/pipeline.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/engine/textedit.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/engine/overrides.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/engine/cleanup.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/engine/zwnj.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/engine/spacing.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/engine/digits.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/engine/punct.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/engine/safety.js" onerror="__tzMiss(this)"></script>
+
+  <!-- Output & Math -->
+  <script defer src="js/output/fonts.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/output/serialize.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/output/clipboard.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/math/detect.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/math/latex-clean.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/math/linear.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/output/omml.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/output/docx.js" onerror="__tzMiss(this)"></script>
+
+  <!-- Interface -->
+  <script defer src="js/ui/popover.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/editor.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/preview.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/diff.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/xray.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/formulas.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/dialogs.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/review-strip.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/settings-cards.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/settings-panel.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/palette.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/app.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/tour.js" onerror="__tzMiss(this)"></script>
+  <script defer src="js/ui/help.js" onerror="__tzMiss(this)"></script>
+</body>
+
+</html>

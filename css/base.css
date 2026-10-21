@@ -1,0 +1,151 @@
+/* Tarāz base: typography, paper background, bubble level, focus styles. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+:root {
+  --ease-el: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  background-image: var(--bg-pattern);
+  background-repeat: repeat;
+  background-size: 140px 140px;
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--fs-md);
+  font-weight: 400;
+  line-height: 1.85;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+}
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+:focus-visible {
+  outline: 2px solid var(--turquoise);
+  outline-offset: 2px;
+  border-radius: var(--r-s);
+}
+[hidden] {
+  display: none !important;
+}
+.tz-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.tz-mono {
+  font-family: var(--font-mono);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.tz-num {
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+::selection {
+  background: color-mix(in srgb, var(--turquoise) 25%, transparent);
+}
+
+/* Bubble level motif */
+.tz-level {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 24px;
+  height: 12px;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  overflow: hidden;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.tz-level .tz-lv {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+  top: calc(50% - 3px);
+  left: calc(50% - 3px);
+  transition: transform var(--dur) var(--ease-bounce), background-color var(--dur);
+}
+.tz-level[data-s="idle"] .tz-lv {
+  transform: translate(0, 0);
+  background: var(--muted);
+}
+.tz-level[data-s="ok"] {
+  border-color: color-mix(in srgb, var(--turquoise) 40%, var(--hairline));
+}
+.tz-level[data-s="ok"] .tz-lv {
+  transform: translate(0, 0);
+  background: var(--turquoise);
+}
+.tz-level[data-s="warn"] {
+  border-color: color-mix(in srgb, var(--brass) 40%, var(--hairline));
+}
+.tz-level[data-s="warn"] .tz-lv {
+  transform: translate(-5px, 0);
+  background: var(--brass);
+}
+.tz-level[data-s="bad"] {
+  border-color: color-mix(in srgb, var(--cinnabar) 40%, var(--hairline));
+}
+.tz-level[data-s="bad"] .tz-lv {
+  transform: translate(5px, 0);
+  background: var(--cinnabar);
+}
+
+/* Slim themed scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--hairline) transparent;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hairline);
+  border-radius: var(--r-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

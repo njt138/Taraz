@@ -1,0 +1,145 @@
+/* Tarāz popover layer: collision-aware menus, tooltips, custom select panels. */
+
+/* Each individual popover – rendered as direct body child, position:fixed */
+.tz-popover {
+  position: fixed;
+  z-index: 9001;
+  min-width: 200px;
+  max-width: 360px;
+  padding: var(--s1);
+  background: var(--surface);
+  border: var(--bw) solid var(--hairline);
+  border-radius: var(--r-m);
+  box-shadow: var(--shadow-3);
+  outline: none;
+  transform-origin: top center;
+  animation: tz-pop-in var(--dur-fast) var(--ease) both;
+}
+.tz-popover[data-dir="up"] {
+  transform-origin: bottom center;
+  animation-name: tz-pop-in-up;
+}
+@keyframes tz-pop-in {
+  from { opacity: 0; transform: scale(0.95) translateY(-4px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes tz-pop-in-up {
+  from { opacity: 0; transform: scale(0.95) translateY(4px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.tz-popover.out {
+  animation: tz-pop-out var(--dur-fast) var(--ease) both;
+  pointer-events: none;
+}
+@keyframes tz-pop-out {
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+/* Menu items inside popovers */
+.tz-popover [role="menuitem"],
+.tz-popover [role="option"] {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  width: 100%;
+  padding: var(--s2) var(--s3);
+  border: 0;
+  border-radius: var(--r-s);
+  background: none;
+  font: inherit;
+  font-size: var(--fs-sm);
+  color: var(--ink);
+  text-align: start;
+  cursor: pointer;
+  transition: background var(--dur-fast);
+  white-space: nowrap;
+}
+.tz-popover [role="menuitem"]:hover,
+.tz-popover [role="option"]:hover {
+  background: var(--surface-2);
+}
+.tz-popover [role="menuitem"]:focus-visible,
+.tz-popover [role="option"]:focus-visible {
+  background: var(--surface-2);
+  outline: 2px solid var(--turquoise);
+  outline-offset: -2px;
+}
+.tz-popover [role="menuitem"][data-focus="true"],
+.tz-popover [role="option"][data-focus="true"] {
+  background: var(--surface-2);
+}
+.tz-popover [role="option"][aria-selected="true"] {
+  font-weight: 600;
+  color: var(--turquoise);
+}
+.tz-popover-check {
+  flex: none;
+  width: 16px;
+  color: var(--turquoise);
+  opacity: 0;
+}
+.tz-popover [aria-selected="true"] .tz-popover-check {
+  opacity: 1;
+}
+.tz-popover-sep {
+  height: 1px;
+  margin: var(--s1) var(--s2);
+  background: var(--hairline);
+}
+
+/* Custom Select trigger button */
+.tz-select-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+  width: 100%;
+  min-height: 36px;
+  padding: 0 var(--s3);
+  background: var(--bg);
+  border: var(--bw) solid var(--hairline);
+  border-radius: var(--r-m);
+  font: inherit;
+  font-size: var(--fs-sm);
+  color: var(--ink);
+  text-align: start;
+  cursor: pointer;
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+}
+.tz-select-btn:hover {
+  border-color: var(--muted);
+}
+.tz-select-btn:focus-visible,
+.tz-select-btn[aria-expanded="true"] {
+  border-color: var(--turquoise);
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--turquoise) 25%, transparent);
+}
+.tz-select-btn .tz-sel-val {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.tz-select-btn .tz-sel-chev {
+  flex: none;
+  color: var(--muted);
+  transition: transform var(--dur-fast);
+}
+.tz-select-btn[aria-expanded="true"] .tz-sel-chev {
+  transform: rotate(180deg);
+}
+
+/* Scrollable select list inside popover */
+.tz-select-list {
+  max-height: 280px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tz-popover,
+  .tz-popover.out {
+    animation-duration: 0.01ms;
+  }
+}

@@ -1,0 +1,493 @@
+/* Tarāz shell: top band, header, stepper, workbench, sheets, dock, empty state. */
+
+/* Top Invocation Band */
+.tz-invocation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s3);
+  padding: var(--s3) var(--s4);
+  min-height: 46px;
+  background: var(--bg);
+  user-select: none;
+  border-block-end: 1px solid color-mix(in srgb, var(--hairline) 60%, transparent);
+}
+.tz-invocation-text {
+  font-family: var(--font-calligraphy);
+  font-size: 22px;
+  line-height: 2.2;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--brass) 70%, var(--ink));
+  text-align: center;
+  letter-spacing: 0;
+}
+.tz-invocation-line {
+  display: inline-block;
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(to var(--dir, left), transparent, color-mix(in srgb, var(--brass) 55%, var(--hairline)), transparent);
+}
+
+/* Header & Navigation Bar */
+.tz-head {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-block-end: var(--bw) solid var(--hairline);
+  padding-top: env(safe-area-inset-top);
+}
+.tz-bar {
+  max-width: var(--w-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s4);
+  padding: var(--s2) var(--s4);
+  min-height: 54px;
+}
+.tz-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  flex-shrink: 0;
+}
+.tz-word {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.tz-lat {
+  font-family: var(--font-latin);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  direction: ltr;
+  unicode-bidi: isolate;
+  margin-inline-start: var(--s1);
+}
+
+/* 3-Step Stepper */
+.tz-steps {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tz-steps li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--muted);
+  background: transparent;
+  transition: all var(--dur-fast) var(--ease);
+}
+.tz-steps li .n {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+.tz-steps li[aria-current="step"] {
+  background: color-mix(in srgb, var(--turquoise) 12%, var(--surface));
+  color: var(--turquoise);
+  font-weight: 600;
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--turquoise) 10%, transparent);
+}
+.tz-steps li[aria-current="step"] .n {
+  background: var(--turquoise);
+  color: var(--on-accent);
+}
+.tz-steps li.done {
+  color: var(--ink-2);
+}
+.tz-steps li.done .n {
+  background: color-mix(in srgb, var(--turquoise) 22%, var(--surface-2));
+  color: var(--turquoise);
+}
+.tz-step-arrow {
+  color: var(--hairline);
+  font-size: 10px;
+}
+
+/* Header Tools */
+.tz-tools {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+.tz-prbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: var(--surface);
+  border: var(--bw) solid var(--hairline);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink);
+  transition: all var(--dur-fast) var(--ease);
+}
+.tz-prbtn:hover {
+  border-color: var(--turquoise);
+  background: var(--surface-2);
+}
+
+/* Workbench Grid & Splitter */
+.tz-main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--w-max);
+  margin: 0 auto;
+  padding: var(--s4) var(--s4) var(--s6);
+}
+.tz-bench {
+  display: grid;
+  grid-template-columns: minmax(0, var(--fa, 1fr)) 16px minmax(0, var(--fb, 1fr));
+  height: clamp(480px, calc(100dvh - 250px), 820px);
+  gap: 0;
+}
+.tz-sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border: var(--bw) solid var(--hairline);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+}
+.tz-sheet:focus-within {
+  border-color: color-mix(in srgb, var(--turquoise) 50%, var(--hairline));
+  box-shadow: var(--shadow-card), 0 0 0 3px var(--turquoise-glow);
+}
+.tz-sh {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding: 0 var(--s4);
+  min-height: 48px;
+  background: var(--surface);
+  border-block-end: var(--bw) solid var(--hairline);
+  flex-shrink: 0;
+}
+.tz-sh h2 {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--ink);
+}
+.tz-ruler {
+  flex: none;
+  height: 6px;
+  opacity: 0.45;
+  background: repeating-linear-gradient(to left, var(--muted) 0 1px, transparent 1px 8px) 0 100%/100% 3px no-repeat,
+              repeating-linear-gradient(to left, var(--muted) 0 1px, transparent 1px 40px) 0 100%/100% 6px no-repeat;
+}
+.tz-sb {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+#tz-panel {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+/* Splitter */
+.tz-split {
+  position: relative;
+  cursor: col-resize;
+  touch-action: none;
+  display: grid;
+  place-items: center;
+  outline: none;
+}
+.tz-split::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  width: var(--bw);
+  background: var(--hairline);
+}
+.tz-split::after {
+  content: "";
+  position: relative;
+  width: 6px;
+  height: 44px;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  border: var(--bw) solid var(--muted);
+  transition: all var(--dur-fast) var(--ease);
+}
+.tz-split:hover::after, .tz-split:focus-visible::after {
+  border-color: var(--turquoise);
+  background: var(--turquoise);
+  transform: scaleY(1.15);
+}
+
+/* Editor Input & Empty State */
+.tz-ed {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+}
+.tz-ta {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  padding: var(--s4);
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: var(--font-ui);
+  font-size: var(--fs-md);
+  line-height: 1.85;
+  color: var(--ink);
+  direction: rtl;
+  text-align: right;
+  tab-size: 4;
+}
+.tz-ta::placeholder {
+  color: var(--muted);
+  opacity: 0.65;
+  direction: rtl;
+  text-align: right;
+}
+
+
+
+/* Editor Bottom Bar */
+.tz-count {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s2) var(--s4);
+  border-block-start: var(--bw) solid var(--hairline);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  background: var(--surface);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+/* Action Dock at the Bottom */
+.tz-dock {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  padding: var(--s3) var(--s4) calc(var(--s3) + env(safe-area-inset-bottom));
+  pointer-events: none;
+  --dock-h: 80px;
+}
+.tz-dock-in {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s2) var(--s3);
+  background: var(--surface);
+  border: var(--bw) solid var(--hairline);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-3);
+  transition: box-shadow var(--dur);
+}
+.tz-dock-in:focus-within {
+  box-shadow: 0 12px 36px -4px var(--shadow-c), 0 0 0 2px var(--turquoise);
+}
+
+/* Primary Action Button */
+.tz-primary-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.tz-primary {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s3);
+  padding: 10px 24px;
+  min-height: 48px;
+  border-radius: var(--r-l);
+  background: var(--turquoise);
+  color: var(--on-accent);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--turquoise) 35%, transparent);
+  transition: all var(--dur-fast) var(--ease);
+  user-select: none;
+}
+.tz-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px color-mix(in srgb, var(--turquoise) 45%, transparent);
+}
+.tz-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.tz-primary .fill {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, black 15%, transparent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 600ms cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+.tz-primary.busy .fill {
+  transform: scaleX(1);
+}
+.tz-primary.done {
+  background: #0E7C7B;
+}
+.tz-dest-hint {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 3px;
+}
+
+/* Dock Secondary Menus */
+.tz-dock-menus {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+.tz-dock-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  min-height: 44px;
+  border-radius: var(--r-m);
+  background: var(--surface-2);
+  border: var(--bw) solid var(--hairline);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink);
+  transition: all var(--dur-fast);
+}
+.tz-dock-menu-btn:hover {
+  border-color: var(--turquoise);
+  background: var(--raised);
+}
+
+/* Footer Credit – stays above the dock */
+.tz-foot {
+  max-width: var(--w-max);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--s4) var(--s4) calc(var(--dock-h, 80px) + var(--s5) + env(safe-area-inset-bottom));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2) var(--s5);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  border-block-start: var(--bw) solid var(--hairline);
+}
+.tz-credit {
+  font-family: var(--font-latin);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--ink);
+  direction: ltr;
+}
+
+/* Responsive Overrides */
+@media (max-width: 860px) {
+  .tz-bar {
+    flex-wrap: wrap;
+  }
+  .tz-steps {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    padding-top: var(--s2);
+    border-block-start: 1px solid var(--hairline);
+  }
+  .tz-bench {
+    display: block;
+    height: auto;
+  }
+  .tz-sheet {
+    height: max(400px, calc(100dvh - 380px));
+  }
+  .tz-split {
+    display: none;
+  }
+  .tz-bench[data-m="in"] #sheet-out,
+  .tz-bench[data-m="out"] #sheet-in {
+    display: none;
+  }
+  .tz-mtabs {
+    display: flex;
+    gap: var(--s2);
+    margin-bottom: var(--s3);
+  }
+  .tz-dock-in {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tz-dock-menus {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .tz-dock-menu-btn {
+    justify-content: center;
+  }
+  .tz-foot {
+    padding-bottom: calc(240px + var(--s5) + env(safe-area-inset-bottom));
+  }
+}
+@media (max-width: 480px) {
+  .tz-steps li:not([aria-current="step"]) .l {
+    display: none;
+  }
+  .tz-lat {
+    display: none;
+  }
+  .tz-main {
+    padding-inline: var(--s3);
+  }
+}

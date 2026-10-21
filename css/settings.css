@@ -1,0 +1,384 @@
+/* Tarāz settings panel styles: drawer, presets, core choice cards, task groups, rows. */
+
+/* Drawer Container */
+.tz-drawer {
+  position: fixed;
+  inset-block: 0;
+  right: 0;
+  left: auto;
+  z-index: 60;
+  width: min(440px, 94vw);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-inline-start: var(--bw) solid var(--hairline);
+  box-shadow: -8px 0 32px -4px var(--shadow-c);
+  transform: translateX(105%);
+  visibility: hidden;
+  transition: transform var(--dur) var(--ease), visibility 0s var(--dur);
+}
+.tz-drawer[data-open] {
+  transform: none;
+  visibility: visible;
+  transition: transform var(--dur) var(--ease);
+}
+.tz-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  background: color-mix(in srgb, black 40%, transparent);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Sticky Drawer Header */
+.tz-drawer-head {
+  padding: var(--s3) var(--s4);
+  background: var(--surface);
+  border-block-end: var(--bw) solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  flex-shrink: 0;
+}
+.tz-dh-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tz-dh-top h2 {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--ink);
+}
+.tz-dh-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+.tz-search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+.tz-q {
+  flex: 1;
+  padding: 8px 14px;
+  background: var(--surface-2);
+  border: var(--bw) solid var(--hairline);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-sm);
+  color: var(--ink);
+  outline: none;
+  transition: all var(--dur-fast);
+}
+.tz-q:focus {
+  border-color: var(--turquoise);
+  background: var(--raised);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--turquoise) 25%, transparent);
+}
+
+/* Drawer Scrollable Body */
+.tz-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--s4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s5);
+}
+
+/* Section Headings */
+.tz-sec-heading {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: var(--s3);
+  padding-bottom: 6px;
+  border-block-end: 1px solid var(--hairline);
+}
+
+/* Presets Cards (Section 1) */
+.tz-preset-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s2);
+}
+.tz-preset-card {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  padding: var(--s3);
+  border-radius: var(--r-l);
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+.tz-preset-card:hover {
+  border-color: var(--turquoise);
+  background: var(--raised);
+  transform: translateY(-1px);
+}
+.tz-preset-card.active {
+  border-color: var(--turquoise);
+  background: color-mix(in srgb, var(--turquoise) 10%, var(--surface));
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--turquoise) 20%, transparent);
+}
+.tz-pc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.tz-pc-name {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink);
+}
+.tz-pc-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: var(--r-pill);
+  background: var(--turquoise);
+  color: var(--on-accent);
+}
+.tz-pc-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Six Core Choices (Section 2) */
+.tz-choice-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+.tz-choice-card {
+  padding: var(--s3);
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+.tz-cc-head h4 {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink);
+}
+.tz-cc-sub {
+  font-size: 11px;
+  color: var(--muted);
+}
+.tz-choice-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+.tz-cg-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+/* Segmented Control */
+.tz-seg {
+  display: inline-flex;
+  background: var(--surface);
+  border: var(--bw) solid var(--hairline);
+  border-radius: var(--r-m);
+  padding: 2px;
+  gap: 2px;
+}
+.tz-seg.wrap {
+  flex-wrap: wrap;
+}
+.tz-seg button {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: calc(var(--r-m) - 2px);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--muted);
+  text-align: center;
+  transition: all var(--dur-fast);
+  white-space: nowrap;
+}
+.tz-seg button[aria-checked="true"] {
+  background: var(--turquoise);
+  color: var(--on-accent);
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Live Demo Box */
+.tz-live-demo {
+  padding: 8px 12px;
+  background: var(--surface);
+  border: 1px dashed var(--hairline);
+  border-radius: var(--r-m);
+  font-size: 11px;
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  overflow: hidden;
+}
+.tz-ld-lbl {
+  color: var(--muted);
+  flex-shrink: 0;
+  font-weight: 600;
+}
+.tz-ld-val {
+  color: var(--turquoise);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tz-font-warn {
+  font-size: 11px;
+  color: var(--brass);
+  background: color-mix(in srgb, var(--brass) 12%, transparent);
+  padding: 6px 10px;
+  border-radius: var(--r-s);
+}
+
+/* Advanced Settings Task Accordions (Section 3) */
+.tz-task-group {
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-l);
+  overflow: hidden;
+  margin-bottom: var(--s2);
+  background: var(--surface);
+}
+.tz-task-group summary {
+  padding: 10px var(--s3);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  background: var(--surface-2);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tz-task-body {
+  padding: var(--s2) var(--s3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+/* Option Row */
+.tz-opt {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 0;
+  border-block-end: 1px solid color-mix(in srgb, var(--hairline) 50%, transparent);
+}
+.tz-opt:last-child {
+  border-block-end: none;
+}
+.tz-oh {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+}
+.tz-ol {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink);
+}
+.tz-hp {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.tz-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brass);
+  margin-inline-end: 4px;
+}
+.tz-opt:not(.mod) .tz-dot,
+.tz-opt:not(.mod) .tz-rs {
+  display: none;
+}
+
+/* Sticky Drawer Footer */
+.tz-drawer-foot {
+  padding: var(--s3) var(--s4);
+  background: var(--surface);
+  border-block-start: var(--bw) solid var(--hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+  flex-shrink: 0;
+}
+.tz-mod-count {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  font-weight: 600;
+}
+.tz-reset-all-btn {
+  font-size: var(--fs-xs);
+  color: var(--cinnabar);
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: var(--r-s);
+}
+.tz-reset-all-btn:hover {
+  background: color-mix(in srgb, var(--cinnabar) 10%, transparent);
+}
+.tz-df-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+.tz-drawer-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Pinned Drawer on Desktop */
+body.tz-pin .tz-drawer {
+  box-shadow: none;
+}
+body.tz-pin {
+  transition: padding-right var(--dur) var(--ease);
+}
+
+/* Mobile Bottom Sheet */
+@media (max-width: 860px) {
+  .tz-drawer {
+    inset-block: auto 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-height: 88vh;
+    border-radius: 20px 20px 0 0;
+    border-inline-start: none;
+    border-block-start: var(--bw) solid var(--hairline);
+    transform: translateY(105%);
+    box-shadow: 0 -8px 32px var(--shadow-c);
+  }
+  .tz-drawer[data-open] {
+    transform: none;
+  }
+  .tz-seg button, .tz-preset-card {
+    min-height: 44px;
+  }
+}
